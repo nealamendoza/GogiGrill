@@ -19,6 +19,8 @@ public class Customer : MonoBehaviour
     private float leaveTimer = 5.0f;
     private float menuTimer = 1.0f;
     private float eatTimer = 10.0f;
+
+    public int tableNum;
     bool destroyed = false;
     private Text leaveTimerText;
     private Image leaveTimerBar;
@@ -201,5 +203,9 @@ public class Customer : MonoBehaviour
     maxEatTime = eatTimer;
     menuTimer = UnityEngine.Random.Range((5 * groupNum), (10 * groupNum));
     maxMenuTime = menuTimer;
+    }
+
+    public void setTableNum(int newTableNum){
+        tableNum = newTableNum;
     }
 }

@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public UnityEngine.Events.UnityEvent goodLeave;
 
-    private Item heldItem;
+    private Item heldItem = null;
 
     private int tableNumber = 0;
 
@@ -130,6 +130,9 @@ public class PlayerController : MonoBehaviour
                     if(checkCust.order == true){
                         customerOrderGet.Invoke();
                         Debug.Log("Order");
+                        if (heldItem){
+                            heldItem.tableNum = checkCust.tableNum;
+                        }
                         checkCust.order = false;
                         checkCust.readyToEat = true;
                     }
@@ -159,7 +162,7 @@ public class PlayerController : MonoBehaviour
         Item menu = (Item) Instantiate(MenuItem, itemSlot.position, itemSlot.rotation);
         menu.gameObject.transform.Rotate(new Vector3(90,180,0));
         Pickup(menu);
-
+        Debug.Log("Menu");
         //PLAYER PICKUP SOUND GOES HERE
 		pickUp1.Play();
     }
@@ -176,6 +179,11 @@ public class PlayerController : MonoBehaviour
 
         item.transform.localPosition = Vector3.zero;
         item.transform.localEulerAngles = Vector3.zero;
+
+        if (item.gameObject.tag == "Menu"){
+            item.transform.Rotate(new Vector3(90,0,0)); 
+        }
+        
 
         //PLAYER PICKUP SOUND GOES HERE
 		pickUp2.Play();
@@ -213,6 +221,7 @@ public class PlayerController : MonoBehaviour
                 tableNumber = UnityEngine.Random.Range(0, 15);
             } 
         }
+        cust.setTableNum((tableNumber + 1));
         cust.menu = true; 
         cust.isSeated = true;
         //PLAYER SEATING CUSTOMER SOUND GOES HERE (OPTIONAL)
