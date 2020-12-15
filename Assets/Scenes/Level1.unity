@@ -3820,6 +3820,18 @@ PrefabInstance:
       propertyPath: customerOrderGet.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6964953355060710374, guid: 0cfa9607432899b4babfa6c52955ae76, type: 3}
+      propertyPath: m_Radius
+      value: 1.7989451
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964953355060710374, guid: 0cfa9607432899b4babfa6c52955ae76, type: 3}
+      propertyPath: m_Center.x
+      value: 0.04841989
+      objectReference: {fileID: 0}
+    - target: {fileID: 6964953355060710374, guid: 0cfa9607432899b4babfa6c52955ae76, type: 3}
+      propertyPath: m_Center.z
+      value: 0.17613928
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cfa9607432899b4babfa6c52955ae76, type: 3}
 --- !u!1001 &7680021427144866517
