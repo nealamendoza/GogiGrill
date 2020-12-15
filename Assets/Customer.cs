@@ -13,6 +13,8 @@ public class Customer : MonoBehaviour
 
     public bool menu = false, eating = false, order = false, isSeated = false, readyToEat = false, checkReady = false;
     public bool spawnToggle = false;
+
+    public bool isLeaving = false;
     private float maxLeaveTime = 50.0f;
     private float maxMenuTime = 60.0f;
     private float maxEatTime = 60.0f;
@@ -145,7 +147,7 @@ public class Customer : MonoBehaviour
         }
 
         if (leaveTimer <= 0){
-            if (destroyed == false){
+            if (destroyed == false && isLeaving == false){
                 Debug.Log("exit");
                 CustomerUnhappy.Play();
                 badLeave.Invoke();
@@ -196,13 +198,13 @@ public class Customer : MonoBehaviour
     }
 
     public void setTimers(int groupNum){
-    maxLeaveTime = 50.0f + (5.0f * groupNum);
+        maxLeaveTime = 50.0f + (5.0f * groupNum);
 
-    leaveTimer = maxLeaveTime;
-    eatTimer = UnityEngine.Random.Range((10 * groupNum), (15 * groupNum));
-    maxEatTime = eatTimer;
-    menuTimer = UnityEngine.Random.Range((5 * groupNum), (10 * groupNum));
-    maxMenuTime = menuTimer;
+        leaveTimer = maxLeaveTime;
+        eatTimer = UnityEngine.Random.Range((10 * groupNum), (15 * groupNum));
+        maxEatTime = eatTimer;
+        menuTimer = UnityEngine.Random.Range((5 * groupNum), (10 * groupNum));
+        maxMenuTime = menuTimer;
     }
 
     public void setTableNum(int newTableNum){

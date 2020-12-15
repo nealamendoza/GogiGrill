@@ -149,6 +149,7 @@ public class PlayerController : MonoBehaviour
                     AudioSource happyAudio = newObject.gameObject.GetComponents<AudioSource>()[1];
                     if (checkCust.checkReady == true && happyAudio.isPlaying == false){
                         Debug.Log("goodExit");
+                        checkCust.isLeaving = true;
                         happyAudio.Play();
                         Destroy(newObject.gameObject, happyAudio.clip.length);
                         goodLeave.Invoke();
