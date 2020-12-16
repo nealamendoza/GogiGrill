@@ -72,6 +72,10 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("Win");
         }
 
+        if (Input.GetKeyDown(KeyCode.P)){
+            goodLeave.Invoke();
+        }
+
     }
 
     void charMove(){

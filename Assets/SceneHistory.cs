@@ -31,6 +31,10 @@ public class SceneHistory : MonoBehaviour
         return returnValue;
     }
 
+    public string GetPrevious(){
+        return (sceneHistory[sceneHistory.Count - 2]);
+    }
+
     // Update is called once per frame
     void Update()
     {

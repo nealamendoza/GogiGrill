@@ -57,7 +57,7 @@ public class GameLogic : MonoBehaviour
         }
         if(goodLeaveCount == maxHappyCount){
             Debug.Log("Good Job!");
-            hist.LoadScene("Win");
+            hist.LoadScene("LevelComplete");
         }
         if (spawningCheck == false && customerCount < 4){
             spawnCheck();
